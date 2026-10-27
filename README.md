@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/naturecode-banner-2026.jpg" alt="NatureCode — Software Engineering & AI" width="100%" />
+<img src="./assets/naturecode-banner-completo.jpg" alt="NatureCode — Software Engineering & AI" width="100%" />
 
 <br/>
 
