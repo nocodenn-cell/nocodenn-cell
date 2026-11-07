@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 350" width="850" height="350" role="img" aria-labelledby="banner-title banner-desc">
+  <title id="banner-title">NatureCode Software — Nature × Machine</title>
+  <desc id="banner-desc">Software Engineering / Artificial Intelligence</desc>
+
+  <defs>
+    <style>
+      .title {
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 50px;
+        fill: #f8fafc;
+        letter-spacing: -1px;
+      }
+      .subtitle {
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        fill: #38bdf8;
+        letter-spacing: 6px;
+      }
+      .desc {
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 13px;
+        fill: #10b981;
+        letter-spacing: 3px;
+      }
+
+      .base {
+        fill: none;
+        stroke: #1e293b;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+      }
+
+      /* Fluxo de energia: pulso luminoso percorrendo cada trilha */
+      .circuit-path {
+        fill: none;
+        stroke: url(#flow);
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-dasharray: 90 630;
+        animation: flow 6s linear infinite;
+      }
+      .c2 { animation-duration: 4.5s; animation-delay: -1.5s; }
+      .c3 { animation-duration: 7s;   animation-delay: -3s;   }
+      .c4 { animation-duration: 5s;   animation-delay: -2s;   }
+      .c5 { animation-duration: 6.5s; animation-delay: -4s;   }
+
+      /* Pulsação dos nós de conexão */
+      .node {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: pulse 2.8s ease-in-out infinite;
+      }
+      .n2 { animation-delay: -0.9s; }
+      .n3 { animation-delay: -1.7s; }
+      .n4 { animation-delay: -0.4s; }
+      .n5 { animation-delay: -2.2s; }
+
+      @keyframes flow {
+        from { stroke-dashoffset: 720; }
+        to   { stroke-dashoffset: 0; }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.35; transform: scale(0.8); }
+        50%      { opacity: 1;    transform: scale(1.2); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * { animation: none !important; }
+      }
+    </style>
+
+    <linearGradient id="flow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="850" y2="0">
+      <stop offset="0"   stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#38bdf8"/>
+      <stop offset="1"   stop-color="#10b981"/>
+    </linearGradient>
+
+    <radialGradient id="bgglow" cx="50%" cy="50%" r="70%">
+      <stop offset="0"   stop-color="#111a2e"/>
+      <stop offset="1"   stop-color="#0b0f19"/>
+    </radialGradient>
+
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#1e293b"/>
+    </pattern>
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="850" height="350" fill="url(#bgglow)"/>
+  <rect width="850" height="350" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Trilhas base (veias de circuito) -->
+  <g class="base">
+    <!-- lado esquerdo -->
+    <path d="M0 60H120Q150 60 160 90T210 120"/>
+    <path d="M0 170H90C120 170 130 150 160 150H230"/>
+    <path d="M0 290H140Q170 290 180 260V220Q180 200 200 200"/>
+    <path d="M40 0V70Q40 90 60 100H130"/>
+    <path d="M110 350V300Q110 280 130 275H200"/>
+    <!-- lado direito (espelhado) -->
+    <path d="M850 60H730Q700 60 690 90T640 120"/>
+    <path d="M850 170H760C730 170 720 150 690 150H620"/>
+    <path d="M850 290H710Q680 290 670 260V220Q670 200 650 200"/>
+    <path d="M810 0V70Q810 90 790 100H720"/>
+    <path d="M740 350V300Q740 280 720 275H650"/>
+  </g>
+
+  <!-- Fluxo de energia animado -->
+  <g>
+    <path class="circuit-path"          d="M0 60H120Q150 60 160 90T210 120"/>
+    <path class="circuit-path c2"       d="M0 170H90C120 170 130 150 160 150H230"/>
+    <path class="circuit-path c3"       d="M0 290H140Q170 290 180 260V220Q180 200 200 200"/>
+    <path class="circuit-path c4"       d="M40 0V70Q40 90 60 100H130"/>
+    <path class="circuit-path c5"       d="M110 350V300Q110 280 130 275H200"/>
+    <path class="circuit-path c3"       d="M850 60H730Q700 60 690 90T640 120"/>
+    <path class="circuit-path c5"       d="M850 170H760C730 170 720 150 690 150H620"/>
+    <path class="circuit-path c2"       d="M850 290H710Q680 290 670 260V220Q670 200 650 200"/>
+    <path class="circuit-path"          d="M810 0V70Q810 90 790 100H720"/>
+    <path class="circuit-path c4"       d="M740 350V300Q740 280 720 275H650"/>
+  </g>
+
+  <!-- Nós de conexão pulsantes -->
+  <g filter="url(#glow)">
+    <g class="node"    >
+      <circle cx="120" cy="60" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="120" cy="60" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n2">
+      <circle cx="160" cy="150" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="160" cy="150" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n3">
+      <circle cx="180" cy="260" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="180" cy="260" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n4">
+      <circle cx="130" cy="100" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="130" cy="100" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n5">
+      <circle cx="110" cy="300" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="110" cy="300" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n3">
+      <circle cx="730" cy="60" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="730" cy="60" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n2">
+      <circle cx="690" cy="150" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="690" cy="150" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n5">
+      <circle cx="670" cy="260" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="670" cy="260" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node n4">
+      <circle cx="720" cy="100" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="720" cy="100" r="2.5" fill="#38bdf8"/>
+    </g>
+    <g class="node">
+      <circle cx="740" cy="300" r="6" fill="none" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="740" cy="300" r="2.5" fill="#38bdf8"/>
+    </g>
+  </g>
+
+  <!-- Texto -->
+  <text class="title" x="425" y="165" text-anchor="middle">NatureCode Software</text>
+  <text class="subtitle" x="425" y="206" text-anchor="middle">NATURE × MACHINE</text>
+  <line x1="390" y1="224" x2="460" y2="224" stroke="url(#flow)" stroke-width="1.5"/>
+  <text class="desc" x="425" y="250" text-anchor="middle">SOFTWARE ENGINEERING / ARTIFICIAL INTELLIGENCE</text>
+</svg>
